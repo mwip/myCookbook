@@ -1,6 +1,6 @@
 import sys
 from PySide2.QtUiTools import QUiLoader
-from PySide2.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QAction
+from PySide2.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QAction, QDialog
 from PySide2.QtCore import QFile, QObject
 
 
@@ -99,9 +99,19 @@ class MainWindow(QMainWindow):
         pass
 
     def about(self):
-        pass
+        about_dialog = AboutDialog(self)
         
 
     def exit_app(self):
         print("exit")
         self.window.close()
+
+
+class AboutDialog(QDialog):
+    def __init__(self, parent):
+        super(AboutDialog, self).__init__(parent)
+        ui_file = QFile("ui/about.ui")
+        ui_file.open(QFile.ReadOnly)
+        self.dialog = QUiLoader().load(ui_file)
+        ui_file.close()
+        self.dialog.show()
