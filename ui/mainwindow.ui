@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>recpp</class>
+ <widget class="QMainWindow" name="recpp">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>707</width>
+    <height>585</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>recpp</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="1">
+     <widget class="QPushButton" name="buttonLoadCookbook">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Load Cookbook</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QTableView" name="tableView"/>
+    </item>
+    <item row="0" column="3">
+     <widget class="QLineEdit" name="labelCurrentCookBook"/>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="buttonOpenCookbook">
+      <property name="text">
+       <string>Open Cookbook</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Add Recipe</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>707</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Coo&amp;kbook</string>
+    </property>
+    <addaction name="actionNewCB"/>
+    <addaction name="actionOpenCB"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+    <addaction name="separator"/>
+    <addaction name="actionCreate_Dummy_Cookbook"/>
+   </widget>
+   <widget class="QMenu" name="menuRecipe">
+    <property name="title">
+     <string>&amp;Recipe</string>
+    </property>
+    <addaction name="actionAdd_Recipe"/>
+    <addaction name="actionEdit_Recipe"/>
+    <addaction name="actionRemove_Recipe"/>
+    <addaction name="separator"/>
+    <addaction name="actionAdd_Dummy_Recipe"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>Abo&amp;ut</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuRecipe"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+  </action>
+  <action name="actionNewCB">
+   <property name="text">
+    <string>&amp;New Cookbook</string>
+   </property>
+  </action>
+  <action name="actionOpenCB">
+   <property name="text">
+    <string>&amp;Open Cookbook</string>
+   </property>
+  </action>
+  <action name="actionAdd_Recipe">
+   <property name="text">
+    <string>Add Recipe</string>
+   </property>
+  </action>
+  <action name="actionRemove_Recipe">
+   <property name="text">
+    <string>Remove Recipe</string>
+   </property>
+  </action>
+  <action name="actionEdit_Recipe">
+   <property name="text">
+    <string>Edit Recipe</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About recpp</string>
+   </property>
+  </action>
+  <action name="actionCreate_Dummy_Cookbook">
+   <property name="text">
+    <string>Create Dummy Cookbook</string>
+   </property>
+  </action>
+  <action name="actionAdd_Dummy_Recipe">
+   <property name="text">
+    <string>Add Dummy Recipe</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
