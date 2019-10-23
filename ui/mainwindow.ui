@@ -39,7 +39,7 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="buttonAddRecipe">
       <property name="text">
        <string>Add Recipe</string>
       </property>
@@ -65,17 +65,17 @@
     <addaction name="separator"/>
     <addaction name="actionExit"/>
     <addaction name="separator"/>
-    <addaction name="actionCreate_Dummy_Cookbook"/>
+    <addaction name="actionCreateDummyCB"/>
    </widget>
    <widget class="QMenu" name="menuRecipe">
     <property name="title">
      <string>&amp;Recipe</string>
     </property>
-    <addaction name="actionAdd_Recipe"/>
-    <addaction name="actionEdit_Recipe"/>
-    <addaction name="actionRemove_Recipe"/>
+    <addaction name="actionAddRecipe"/>
+    <addaction name="actionEditRecipe"/>
+    <addaction name="actionRemoveRecipe"/>
     <addaction name="separator"/>
-    <addaction name="actionAdd_Dummy_Recipe"/>
+    <addaction name="actionAddDummyRecipe"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -111,17 +111,17 @@
     <string>&amp;Open Cookbook</string>
    </property>
   </action>
-  <action name="actionAdd_Recipe">
+  <action name="actionAddRecipe">
    <property name="text">
     <string>Add Recipe</string>
    </property>
   </action>
-  <action name="actionRemove_Recipe">
+  <action name="actionRemoveRecipe">
    <property name="text">
     <string>Remove Recipe</string>
    </property>
   </action>
-  <action name="actionEdit_Recipe">
+  <action name="actionEditRecipe">
    <property name="text">
     <string>Edit Recipe</string>
    </property>
@@ -131,12 +131,12 @@
     <string>About recpp</string>
    </property>
   </action>
-  <action name="actionCreate_Dummy_Cookbook">
+  <action name="actionCreateDummyCB">
    <property name="text">
     <string>Create Dummy Cookbook</string>
    </property>
   </action>
-  <action name="actionAdd_Dummy_Recipe">
+  <action name="actionAddDummyRecipe">
    <property name="text">
     <string>Add Dummy Recipe</string>
    </property>

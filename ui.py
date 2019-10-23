@@ -25,7 +25,7 @@ class MainWindow(QMainWindow):
         self.btn_open_cb.clicked.connect(self.open_cookbook)
 
         self.btn_load_cb = self.window.findChild(QPushButton,
-                                                 "buttonLoadCookBook")
+                                                 "buttonLoadCookbook")
         self.btn_load_cb.clicked.connect(self.load_cookbook)
 
         self.btn_add_recipe = self.window.findChild(QPushButton,
@@ -42,7 +42,7 @@ class MainWindow(QMainWindow):
                                                     "actionOpenCB")
         self.action_open_cb.triggered.connect(self.open_cookbook)
 
-        self.action_create_dummy_CB = self.window.findchild(QAction,
+        self.action_create_dummy_CB = self.window.findChild(QAction,
                                                             "actionCreateDummyCB")
         self.action_create_dummy_CB.triggered.connect(self.create_dummy_cookbook)
 
