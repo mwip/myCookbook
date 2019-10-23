@@ -15,7 +15,24 @@ class MainWindow(QMainWindow):
         self.window = loader.load(ui_file)
         ui_file.close()
 
+        # Variables
+        self.current_cb = ""
 
+        
+        # Buttons
+        self.btn_open_cb = self.window.findChild(QPushButton,
+                                                 "buttonOpenCookbook")
+        self.btn_open_cb.clicked.connect(self.open_cookbook)
+
+        self.btn_load_cb = self.window.findChild(QPushButton,
+                                                 "buttonLoadCookBook")
+        self.btn_load_cb.clicked.connect(self.load_cookbook)
+
+        self.btn_add_recipe = self.window.findChild(QPushButton,
+                                                    "buttonAddRecipe")
+        self.btn_add_recipe.clicked.connect(self.new_recipe)
+
+        
         # Actions
         self.action_new_cb = self.window.findChild(QAction,
                                                    "actionNewCB")
@@ -36,7 +53,6 @@ class MainWindow(QMainWindow):
         self.action_edit_recipe = self.window.findChild(QAction,
                                                         "actionEditRecipe")
         self.action_edit_recipe.triggered.connect(self.edit_recipe)
-
         self.action_remove_recipe = self.window.findChild(QAction,
                                                           "actionRemoveRecipe")
         self.action_remove_recipe.triggered.connect(self.remove_recipe)
@@ -62,6 +78,9 @@ class MainWindow(QMainWindow):
         pass
 
     def open_cookbook(self):
+        pass
+
+    def load_cookbook(self):
         pass
 
     def create_dummy_cookbook(self):
