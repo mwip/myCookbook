@@ -1,6 +1,6 @@
 import sys
 from PySide2.QtUiTools import QUiLoader
-from PySide2.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QAction, QDialog, QFileDialog
+from PySide2.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QAction, QDialog, QFileDialog, QLabel
 from PySide2.QtCore import QFile, QObject
 from PySide2.QtGui import QIcon
 
@@ -23,9 +23,9 @@ class MainWindow(QMainWindow):
 
         
         # Buttons
-        self.btn_open_cb = self.window.findChild(QPushButton,
-                                                 "buttonOpenCookbook")
-        self.btn_open_cb.clicked.connect(self.open_cookbook)
+        self.btn_select_cb = self.window.findChild(QPushButton,
+                                                 "buttonSelectCookbook")
+        self.btn_select_cb.clicked.connect(self.select_cookbook)
 
         self.btn_load_cb = self.window.findChild(QPushButton,
                                                  "buttonLoadCookbook")
@@ -41,9 +41,9 @@ class MainWindow(QMainWindow):
                                                    "actionNewCB")
         self.action_new_cb.triggered.connect(self.new_cookbook)
 
-        self.action_open_cb = self.window.findChild(QAction,
-                                                    "actionOpenCB")
-        self.action_open_cb.triggered.connect(self.open_cookbook)
+        self.action_select_cb = self.window.findChild(QAction,
+                                                    "actionSelectCB")
+        self.action_select_cb.triggered.connect(self.select_cookbook)
 
         self.action_create_dummy_CB = self.window.findChild(QAction,
                                                             "actionCreateDummyCB")
@@ -72,6 +72,10 @@ class MainWindow(QMainWindow):
                                                  "actionExit")
         self.action_exit.triggered.connect(self.exit_app)
 
+        # Displays
+        self.lbl_current_cb = self.window.findChild(QLabel,
+                                                    "labelCurrentCookBook")
+        
         # show main window
         self.window.show()
 
@@ -80,8 +84,11 @@ class MainWindow(QMainWindow):
     def new_cookbook(self):
         pass
 
-    def open_cookbook(self):
-        pass
+    def select_cookbook(self):
+        fileName = QFileDialog.getOpenFileName(self, "Select Cookbook",
+                                               "", "")[0]
+        if not fileName == '':
+            self.lbl_current_cb.setText(fileName)
 
     def load_cookbook(self):
         pass
