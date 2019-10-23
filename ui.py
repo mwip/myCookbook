@@ -1,7 +1,8 @@
 import sys
 from PySide2.QtUiTools import QUiLoader
-from PySide2.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QAction, QDialog
+from PySide2.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QAction, QDialog, QFileDialog
 from PySide2.QtCore import QFile, QObject
+from PySide2.QtGui import QIcon
 
 
 class MainWindow(QMainWindow):
@@ -14,6 +15,8 @@ class MainWindow(QMainWindow):
         loader = QUiLoader()
         self.window = loader.load(ui_file)
         ui_file.close()
+
+        self.window.setWindowIcon(QIcon('ressources/icon.png'))
 
         # Variables
         self.current_cb = ""
