@@ -1,4 +1,5 @@
 import sys
+import os
 from PySide2.QtUiTools import QUiLoader
 from PySide2.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QAction, QDialog, QFileDialog, QLabel
 from PySide2.QtCore import QFile, QObject
@@ -89,6 +90,8 @@ class MainWindow(QMainWindow):
                                                "", "")[0]
         if not fileName == '':
             self.lbl_current_cb.setText(fileName)
+        if os.path.isfile(fileName):
+            self.btn_load_cb.setEnabled(True)
 
     def load_cookbook(self):
         pass
