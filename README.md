@@ -1,2 +1,2 @@
 # myCookbook
-An offline Cookbook for collecting your Recipes
+An offline cookbook for collecting your recipes
