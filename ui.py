@@ -4,6 +4,7 @@ from PySide2.QtUiTools import QUiLoader
 from PySide2.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QAction, QDialog, QFileDialog, QLabel
 from PySide2.QtCore import QFile, QObject
 from PySide2.QtGui import QIcon
+from database import Database
 
 
 class MainWindow(QMainWindow):
@@ -97,7 +98,13 @@ class MainWindow(QMainWindow):
         pass
 
     def create_dummy_cookbook(self):
-        pass
+        file_name = QFileDialog.getSaveFileName(self, "Create Dummy Cookbook",
+                                               "", "")[0]
+        print(file_name)
+        if os.path.isfile(file_name):
+            os.remove(file_name)
+        db = Database(file_name)
+        db.create_dummy_database()
 
     def new_recipe(self):
         pass
