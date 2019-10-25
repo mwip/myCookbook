@@ -1,5 +1,9 @@
 from cookbook import Cookbook
 import sqlite3
+import base64
+from PIL import Image
+from io import BytesIO
+
 
 class Database:
     
@@ -46,6 +50,7 @@ class Database:
                           RATING          INT,
                           DIFFICULTY      INT,
                           PREPARATIONTIME INT,
+                          IMAGE           TEXT,
                           CUISINE         CHAR(50));'''
         self.query_db(qry_recipes)
  
@@ -68,5 +73,18 @@ class Database:
                         'drink beer and have the joy', 5, 1, 10, 
                         'Bavarian');'''
         self.query_db(qry_recipe)
+
+
+    def encode_image(self, image_file):
+        # base64 encode image
+        # https://stackoverflow.com/q/3715493/3250126
+        with open(image_file, "rb") as image_file: 
+            encoded_image = base64.b64encode(image_file.read())
+        return encoded_image
+
+    def decode_image(self, encoded_string):
+        image = Image.open(BytesIO(base64.b64decode(data)))
+        # im.save('image1.png', 'PNG')
+        return image
 
    
