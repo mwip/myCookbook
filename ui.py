@@ -1,10 +1,11 @@
 import sys
 import os
 from PySide2.QtUiTools import QUiLoader
-from PySide2.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QAction, QDialog, QFileDialog, QLabel
-from PySide2.QtCore import QFile, QObject
+from PySide2.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QAction, QDialog, QFileDialog, QLabel, QTableView, QStatusBar
+from PySide2.QtCore import QFile, QObject, QStringListModel
 from PySide2.QtGui import QIcon
 from database import Database
+from models import MainWindowTableModel
 
 
 class MainWindow(QMainWindow):
@@ -77,7 +78,10 @@ class MainWindow(QMainWindow):
         # Displays
         self.lbl_current_cb = self.window.findChild(QLabel,
                                                     "labelCurrentCookBook")
-        
+        self.tbl_recipes = self.window.findChild(QTableView,
+                                                 "tableRecipes")
+        self.status = self.window.findChild(QStatusBar,
+                                            "statusBar")
         # show main window
         self.window.show()
 
@@ -87,15 +91,22 @@ class MainWindow(QMainWindow):
         pass
 
     def select_cookbook(self):
-        fileName = QFileDialog.getOpenFileName(self, "Select Cookbook",
-                                               "", "")[0]
-        if not fileName == '':
-            self.lbl_current_cb.setText(fileName)
-        if os.path.isfile(fileName):
+        file_name = QFileDialog.getOpenFileName(self,
+                                                     "Select Cookbook",
+                                                     "", "")[0]
+        self.current_cb = file_name
+        if not file_name == '':
+            self.lbl_current_cb.setText(file_name)
+        if os.path.isfile(file_name):
             self.btn_load_cb.setEnabled(True)
 
     def load_cookbook(self):
-        pass
+        self.database = Database(self.current_cb)
+        self.database.load_data_base()
+        self.table_model = MainWindowTableModel(self.database.recipes)
+        self.tbl_recipes.setModel(self.table_model)
+        
+        
 
     def create_dummy_cookbook(self):
         file_name = QFileDialog.getSaveFileName(self, "Create Dummy Cookbook",
