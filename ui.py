@@ -10,11 +10,13 @@ from models import MainWindowTableModel
 
 class MainWindow(QMainWindow):
  
-    def __init__(self, ui_file, parent=None):
+    def __init__(self, ui_file, version, parent=None):
         super(MainWindow, self).__init__(parent)
         ui_file = QFile(ui_file)
         ui_file.open(QFile.ReadOnly)
- 
+
+        self.version = version
+        
         loader = QUiLoader()
         self.window = loader.load(ui_file)
         ui_file.close()
