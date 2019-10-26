@@ -51,7 +51,7 @@ class Database:
                           NUMRECIPES  INT);'''
         self.query_db(qry_cookbook)
         qry_recipes = '''CREATE TABLE RECIPES(
-                          ID              INT PRIMARY KEY,
+                          ID              INTEGER PRIMARY KEY AUTOINCREMENT,
                           NAME            TEXT NOT NULL,
                           COMMENT         TEXT,
                           NUMPORTIONS     INT,
