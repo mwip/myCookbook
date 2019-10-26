@@ -14,12 +14,22 @@ class Database:
         self.conn = sqlite3.connect(self.file_name)
         self.c = self.conn.cursor()
         self.c.execute(query)
+        if query.find('select') > -1:
+            result = self.c.fetchall()
+            self.conn.commit()
+            self.conn.close()
+            return result
         self.conn.commit()
         self.conn.close()
 
     def load_data_base(self):
-        pass
-
+        # meta = self.query_db("select * from meta;")
+        # print(meta)
+        # cookbook = self.query_db("select * from cookbook;")
+        # print(cookbook)
+        self.recipes = self.query_db("select * from recipes;")
+        # print(self.recipes)
+        
     def create_dummy_database(self):
         self.initialize_database()
         self.create_dummy_recipe()
@@ -72,6 +82,7 @@ class Database:
                         '1;kg;joy;2;liter;beer',
                         'drink beer and have the joy', 5, 1, 10, 
                         'Bavarian');'''
+        self.query_db(qry_recipe)
         self.query_db(qry_recipe)
 
 
