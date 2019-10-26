@@ -4,7 +4,7 @@ from PySide2.QtWidgets import QApplication
 from PySide2.QtCore import Qt, QCoreApplication
 from ui import MainWindow
 
-version = 0.0.0
+version = "0.0.0"
 
 if __name__ == '__main__':
     QCoreApplication.setAttribute(Qt.AA_ShareOpenGLContexts)
