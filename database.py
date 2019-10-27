@@ -1,5 +1,5 @@
 from cookbook import Cookbook
-import sqlite3
+import sqlite3 # https://docs.python.org/3/library/sqlite3.html
 import base64
 from PIL import Image
 from io import BytesIO
