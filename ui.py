@@ -22,6 +22,7 @@ class MainWindow(QMainWindow):
         ui_file.close()
 
         self.window.setWindowIcon(QIcon('ressources/icon.png'))
+        self.window.setWindowTitle('myCookbook')
 
         # Variables
         self.current_cb = ""
