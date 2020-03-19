@@ -114,6 +114,7 @@ class MainWindow(QMainWindow):
         self.database.load_data_base()
         self.table_model = MainWindowTableModel(self.database.recipes)
         self.tbl_recipes.setModel(self.table_model)
+        self.tbl_recipes.hideColumn(0)
         
         
 
