@@ -85,8 +85,14 @@ class MainWindow(QMainWindow):
                                                  "tableRecipes")
         self.status = self.window.findChild(QStatusBar,
                                             "statusBar")
+
         # show main window
         self.window.show()
+        
+        # Connect table actions
+        self.tbl_recipes.clicked.connect(self.tbl_clicked)
+        self.tbl_recipes.doubleClicked.connect(self.tbl_dbl_clicked)
+        
 
 
     # Functionality
@@ -134,7 +140,19 @@ class MainWindow(QMainWindow):
 
     def about(self):
         about_dialog = AboutDialog(self)
-        
+
+    def tbl_clicked(self):
+        pass
+    
+    def tbl_dbl_clicked(self):
+        current_index = self.tbl_recipes.currentIndex()
+        current_recipe_id = self.tbl_recipes.model().data(
+            self.tbl_recipes.model().index(current_index.row(), 0))
+        print("Load recipe: {}".format(current_recipe_id))
+        self.show_recipe(current_recipe_id)
+
+    def show_recipe(self, recipe_id):
+        pass
 
     def exit_app(self):
         print("exit")
