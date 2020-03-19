@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>recpp</class>
- <widget class="QMainWindow" name="recpp">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -12,6 +12,10 @@
   </property>
   <property name="windowTitle">
    <string>myCookbook</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../ressources/icon.png</normaloff>../ressources/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -68,7 +72,7 @@
      <x>0</x>
      <y>0</y>
      <width>707</width>
-     <height>30</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
