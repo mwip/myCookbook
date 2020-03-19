@@ -153,7 +153,7 @@ class MainWindow(QMainWindow):
         self.show_recipe(current_recipe_id)
 
     def show_recipe(self, recipe_id):
-        pass
+        show_recipe_window = ShowRecipe(self, recipe_id)
 
     def exit_app(self):
         print("exit")
@@ -168,3 +168,15 @@ class AboutDialog(QDialog):
         self.dialog = QUiLoader().load(ui_file)
         ui_file.close()
         self.dialog.show()
+
+
+class ShowRecipe(QMainWindow):
+    def __init__(self, parent, recipe_id):
+        self.recipe_id = recipe_id
+        
+        super(ShowRecipe, self).__init__(parent)
+        ui_file = QFile("ui/showrecipe.ui")
+        ui_file.open(QFile.ReadOnly)
+        self.window = QUiLoader().load(ui_file)
+        ui_file.close()
+        self.window.show()
